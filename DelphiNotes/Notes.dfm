@@ -5492,6 +5492,7 @@ object Form1: TForm1
     0000000000000000000000000000000000000000000000000000000000000000
     000000000000000000000000000000000000000000000000000000000000}
   OldCreateOrder = False
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 14
   object dxLayoutControl1: TdxLayoutControl
@@ -5538,9 +5539,6 @@ object Form1: TForm1
         Font.Style = []
         ParentFont = False
         TabOrder = 0
-        ExplicitLeft = 3
-        ExplicitTop = 18
-        ExplicitHeight = 429
         object cxGrid1DBTableView1: TcxGridDBTableView
           Navigator.Buttons.CustomButtons = <>
           Navigator.Buttons.Prior.Visible = True
@@ -5675,17 +5673,20 @@ object Form1: TForm1
     end
   end
   object ADOConnection1: TADOConnection
-    Connected = True
     ConnectionString = 
       'Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security In' +
-      'fo=False;Initial Catalog=Notes;Data Source=KODJIMBO'
+      'fo=False;Initial Catalog=NotesBase;Data Source=KODJIMBO;Use Proc' +
+      'edure for Prepare=1;Auto Translate=True;Packet Size=4096;Worksta' +
+      'tion ID=KODJIMBO;Initial File Name=C:\Program Files\Microsoft SQ' +
+      'L Server\MSSQL15.MSSQLSERVER\MSSQL\DATA\NotesBase.mdf;Use Encryp' +
+      'tion for Data=False;Tag with column collation when possible=Fals' +
+      'e;'
     LoginPrompt = False
     Provider = 'SQLOLEDB.1'
     Left = 336
     Top = 136
   end
   object ADOTable1: TADOTable
-    Active = True
     Connection = ADOConnection1
     CursorType = ctStatic
     TableName = 'Notes'
@@ -5699,6 +5700,7 @@ object Form1: TForm1
   end
   object ADOQuery1: TADOQuery
     Connection = ADOConnection1
+    CursorType = ctStatic
     DataSource = DataSource1
     Parameters = <>
     SQL.Strings = (

@@ -56,6 +56,7 @@ type
     procedure cxButton3Click(Sender: TObject);
     procedure cxButton1Click(Sender: TObject);
     procedure cxButton4Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -83,7 +84,7 @@ end;
 
 procedure TForm1.cxButton3Click(Sender: TObject);
 var F:TextFile;
-i,k:integer;
+i:integer;
 CopyString:string;
 begin
 AdoTable1.Active:=True;
@@ -110,6 +111,14 @@ AdoTable1.Active:=True;
 procedure TForm1.cxButton4Click(Sender: TObject);
 begin
 Form3.Show;
+end;
+
+procedure TForm1.FormCreate(Sender: TObject);
+var CS: String;
+begin
+CS := Format('Provider=Microsoft.Jet.OLEDB.4.0;Data Source=%s;Persist Security Info=False', [ExtractFilePath(ParamStr(0)) + 'NotesBase.mdb']);
+ADOConnection1.ConnectionString := CS;
+ADOTable1.Active;
 end;
 
 end.
